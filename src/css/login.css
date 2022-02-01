@@ -1,0 +1,25 @@
+.form-holder {
+    padding: 15px;
+    margin: auto;
+    width: 30%;
+}
+
+.l-f {
+    margin-top: 10%;
+}
+
+.s-f {
+    margin-top: 5%;
+}
+
+.login-form {
+    width: max-content;
+}
+
+.MuiInputBase-root {
+    margin: 15px;
+}
+
+.MuiButton-root {
+    margin: 20px;
+}

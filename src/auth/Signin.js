@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import {Redirect,useHistory} from 'react-router-dom'
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import { Button, Card } from "@material-ui/core";
+import { makeStyles } from '@mui/styles';
+import TextField from '@mui/material/TextField';
+import Card from '@mui/material/Card';
+import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 // import {signin} from '../store/action/useraction'
 import { useEffect } from "react";
+import "../css/login.css";
+/*
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -15,48 +18,55 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+*/
 
 export default function Signin() {
   // const dispatch = useDispatch();
   // const history = useHistory();
   const auth = useSelector((state) => state.user);
-  console.log(JSON.parse(auth));
-  const classes = useStyles();
+  //console.log(JSON.parse(auth));
+  //const classes = useStyles();
+  /*
   const [user, setuser] = useState({
     email: "",
     password: "",
   });
-  // useEffect(()=>{
-  // console.log(auth)
-  // },[auth])
+  
+  
+   useEffect(()=>{
+   console.log(auth)
+   },[auth])
   const LogIn = (e) => {
     e.preventDefault();
     localStorage.setItem(user);
     console.log(user);
   };
+  */
+  
   // if (auth.token) return <Redirect to="/"></Redirect>
   return (
-    <Card>
-      <h1>SignIn</h1>
-      <form className={classes.root} noValidate autoComplete="off">
+    <Card className="form-holder l-f">
+      <form className="login-form">
+      <h1>SignIn</h1> 
         <TextField
-          id="standard-basic"
+        id="standard-basic"
           label="Email"
-          value={user.email}
+          value={"user.email"}
           onChange={(e) => setuser({ ...user, email: e.target.value })}
         />
         <br />
         <TextField
           id="standard-basic"
           label="Password"
-          value={user.password}
+          value={"user.password"}
           onChange={(e) => setuser({ ...user, password: e.target.value })}
         />
         <br></br>
-        <Button onClick={() => LogIn()}>LogIn</Button>
-        <Link to="/signup">
-          <p>Signup</p>
-        </Link>
+        <Button  variant="contained" onClick={() => LogIn()}>LogIn</Button>
+        
+        {//<Link to="/signup"> <p>Signup</p></Link>
+        }
+      
       </form>
     </Card>
   );

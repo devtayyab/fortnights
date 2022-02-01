@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import { useDispatch, useSelector } from "react-redux";
 // import {signup} from '../store/action/useraction'
-import TextField from "@material-ui/core/TextField";
-import { Button, Card } from "@material-ui/core";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Card from '@mui/material/Card';
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -11,7 +12,10 @@ import FormControl from "@mui/material/FormControl";
 import { useHistory } from "react-router-dom";
 import Select from "@mui/material/Select";
 // import { Redirect, useHistory } from "react-router-dom";
-import { AddUser } from "../store/action/useraction";
+//import { AddUser } from "../store/action/useraction";
+import "../css/login.css"
+
+/*
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -21,7 +25,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+*/
+
 export default function SignUp() {
+  /*
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -42,38 +49,40 @@ export default function SignUp() {
     dispatch(AddUser(user));
   };
   if (auth.name) return history.push('/book')
+  */
+
   return (
-    <Card>
+    <Card className="form-holder s-f">
+      <form className="login-form">
       <h1>SignUP</h1>
-      <form className={classes.root} noValidate autoComplete="off">
         <TextField
           id="standard-basic"
           label="Name"
-          value={user.name}
+          value={"user.name"}
           onChange={(e) => setuser({ ...user, name: e.target.value })}
         />
         <br />
         <TextField
           id="standard-basic1"
           label="Email"
-          value={user.email}
+          value={"user.email"}
           onChange={(e) => setuser({ ...user, email: e.target.value })}
         />
         <br></br>
         <TextField
           id="standard-basic2"
           label="Password"
-          value={user.password}
+          value={"user.password"}
           onChange={(e) => setuser({ ...user, password: e.target.value })}
         />
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <InputLabel id="demo-simple-select-label">Role</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={role}
+            value={"role"}
             label="Role"
-            onChange={handleChange}
+            onChange={() => handleChange()}
           >
             <MenuItem value={"users"}>User</MenuItem>
             <MenuItem value={"admin"}>Admin</MenuItem>
@@ -81,7 +90,7 @@ export default function SignUp() {
           </Select>
         </FormControl>
         <br />
-        <Button onClick={() => handleChanges()}>SignUp</Button>
+        <Button variant="contained" onClick={() => handleChanges()}>SignUp</Button>
       </form>
     </Card>
   );
